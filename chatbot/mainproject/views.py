@@ -6,13 +6,18 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from .models import Chat
 from django.utils import timezone
+from dotenv import load_dotenv
+
+
+def configure():
+    load_dotenv()
+
+configure()
+genai.configure(api_key = os.getenv('api_key'))
+
 # client = OpenAI(api_key=openai_api_key) 
-# Create your views here.
 
 
-genai.configure(api_key="AIzaSyBYVl-gusTvysMXzjO8SyEmf9gXninEfbw")
-
-# client = OpenAI(api_key=openai_api_key) 
 def ask_openai(message):
     model = genai.GenerativeModel("gemini-pro")
     response = model.generate_content(message).text
