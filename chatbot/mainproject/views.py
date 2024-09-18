@@ -9,7 +9,6 @@ from django.utils import timezone
 # client = OpenAI(api_key=openai_api_key) 
 # Create your views here.
 
-# openai_api_key= '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'
 
 genai.configure(api_key="AIzaSyBYVl-gusTvysMXzjO8SyEmf9gXninEfbw")
 
@@ -33,7 +32,7 @@ def chatbot(request):
         return JsonResponse({'message': message, 'response': response})    
     return render(request, 'chatbot.html', {'chats': chats})
 
-# api key  = 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
+
 
 
 def login(request):
